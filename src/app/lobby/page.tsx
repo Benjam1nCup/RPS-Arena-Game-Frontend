@@ -160,9 +160,9 @@ export default function LobbyPage() {
             <p className="mt-2 text-sm">Create a room or use quick match.</p>
           </Card>
         ) : (
-          <div className="overflow-x-auto rounded-xl border border-border">
+          <div className="overflow-x-auto rounded-2xl border-2 border-black bg-white">
             <table className="w-full min-w-[320px] text-left text-sm">
-              <thead className="bg-surface-secondary text-text-muted">
+              <thead className="bg-[#FFD445] text-black/70">
                 <tr>
                   <th className="px-4 py-3">Room</th>
                   <th className="px-4 py-3">Stake</th>
@@ -172,7 +172,7 @@ export default function LobbyPage() {
               </thead>
               <tbody>
                 {rooms.map((r) => (
-                  <tr key={r.id} className="border-t border-border">
+                  <tr key={r.id} className="border-t border-black/10">
                     <td className="px-4 py-3">#{r.id}</td>
                     <td className="px-4 py-3">{formatRps(r.stake)} RPS</td>
                     <td className="px-4 py-3">

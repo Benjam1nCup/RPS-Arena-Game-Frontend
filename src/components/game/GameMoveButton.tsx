@@ -21,10 +21,8 @@ export function GameMoveButton({
       disabled={disabled}
       onClick={onSelect}
       className={cn(
-        "flex min-h-[100px] w-full flex-col items-center justify-center rounded-xl border px-4 py-6 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary disabled:opacity-40",
-        selected
-          ? "border-primary bg-primary/15"
-          : "border-border bg-surface-secondary hover:border-primary/50",
+        "flex min-h-[110px] w-full flex-col items-center justify-center rounded-3xl border-4 border-black px-4 py-6 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-black disabled:opacity-40",
+        selected ? "bg-black text-[#FFD445]" : "bg-white text-black hover:scale-[1.02]",
       )}
       aria-pressed={selected}
     >

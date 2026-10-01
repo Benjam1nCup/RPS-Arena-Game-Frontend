@@ -3,20 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --color-background: #0c0e12;
-  --color-surface: #141820;
-  --color-surface-secondary: #1a2030;
-  --color-border: #2a3348;
-  --color-text-primary: #f2f4f8;
-  --color-text-secondary: #a8b0c0;
-  --color-text-muted: #6b7589;
-  --color-primary: #5eead4;
-  --color-primary-hover: #99f6e4;
-  --color-success: #4ade80;
-  --color-warning: #fbbf24;
-  --color-danger: #f87171;
-  --font-geist-sans: ui-sans-serif, system-ui, sans-serif;
-  --font-geist-mono: ui-monospace, monospace;
+  --sixtep-yellow: #ffd445;
+  --sixtep-red: #fa6a42;
+  --sixtep-blue: #2e97ee;
+  --sixtep-stone: #f5f3ef;
+  --sixtep-black: #2d2a27;
+  --sixtep-white: #f3ede1;
+
+  --color-background: var(--sixtep-yellow);
+  --color-surface: var(--sixtep-black);
+  --color-surface-secondary: #ffffff;
+  --color-border: var(--sixtep-black);
+  --color-text-primary: var(--sixtep-black);
+  --color-text-secondary: rgba(45, 42, 39, 0.72);
+  --color-text-muted: rgba(45, 42, 39, 0.55);
+  --color-primary: var(--sixtep-black);
+  --color-primary-hover: #000000;
+  --color-success: #1a7f4b;
+  --color-warning: #c47d00;
+  --color-danger: var(--sixtep-red);
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-body: var(--font-space-mono), ui-monospace, monospace;
+  --font-callout: var(--font-caveat), cursive;
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -30,6 +39,192 @@
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-text-primary);
+  background: var(--sixtep-yellow);
+  color: var(--sixtep-black);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+.sixtep-app {
+  min-height: 100vh;
+  background: var(--sixtep-yellow);
+  color: var(--sixtep-black);
+}
+
+.sixtep-dot-frame {
+  background-image: url("/patterns/dotgrid.svg");
+  background-size: 8px 8px;
+  border-radius: 3rem;
+  padding: 1rem;
+}
+
+.sixtep-panel {
+  border-radius: 2.5rem;
+  background: var(--sixtep-black);
+  color: var(--sixtep-yellow);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 4px solid var(--sixtep-black);
+  box-shadow: 0 12px 0 rgba(0, 0, 0, 0.08);
+}
+
+.sixtep-panel-light {
+  border-radius: 2.5rem;
+  background: #ffffff;
+  color: var(--sixtep-black);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 4px solid var(--sixtep-black);
+}
+
+.sixtep-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid var(--sixtep-black);
+  font-weight: 600;
+  transition: transform 0.2s var(--bounce), box-shadow 0.2s ease;
+}
+
+.sixtep-pill-btn:hover:not(:disabled) {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.sixtep-pill-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sixtep-pill-primary {
+  background: var(--sixtep-black);
+  color: var(--sixtep-yellow);
+}
+
+.sixtep-pill-secondary {
+  background: #fff;
+  color: var(--sixtep-black);
+}
+
+.sixtep-pill-danger {
+  background: #fff;
+  color: var(--sixtep-red);
+  border-color: var(--sixtep-red);
+}
+
+.sixtep-callout {
+  font-family: var(--font-callout);
+  background: #fff;
+  color: var(--sixtep-black);
+  padding: 0.65em 0.9em;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 2px solid var(--sixtep-black);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.sixtep-huge-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 18vw, 14rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--sixtep-black);
+  pointer-events: none;
+  user-select: none;
+}
+
+.sixtep-progress-num {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  text-stroke: 2px #fff;
+  letter-spacing: -0.06em;
+}
+
+.sixtep-device {
+  border: 4px solid var(--sixtep-black);
+  border-radius: 2.5rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.sixtep-nav {
+  border-bottom: 2px solid rgba(45, 42, 39, 0.15);
+  background: rgba(255, 212, 69, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.sixtep-nav-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(45, 42, 39, 0.65);
+  transition: color 0.2s;
+}
+
+.sixtep-nav-link:hover,
+.sixtep-nav-link-active {
+  color: var(--sixtep-black);
+}
+
+.sixtep-input {
+  width: 100%;
+  border: 2px solid var(--sixtep-black);
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  color: var(--sixtep-black);
+  font-family: var(--font-body);
+}
+
+.sixtep-input:focus-visible {
+  outline: 2px solid var(--sixtep-blue);
+  outline-offset: 2px;
+}
+
+.sixtep-modal-overlay {
+  background: rgba(45, 42, 39, 0.75);
+  backdrop-filter: blur(6px);
+}
+
+.sixtep-modal-panel {
+  border: 4px solid var(--sixtep-black);
+  border-radius: 2rem;
+  background: var(--sixtep-yellow);
+  color: var(--sixtep-black);
+}
+
+.sixtep-also-item {
+  font-family: var(--font-callout);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  line-height: 1.15;
+  text-align: center;
+}
+
+.sixtep-footer {
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2rem 1rem 2.5rem;
+  color: rgba(45, 42, 39, 0.75);
 }

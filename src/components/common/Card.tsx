@@ -1,14 +1,23 @@
 import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "react";
 
-export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+type CardTone = "dark" | "light";
+
+export function Card({
+  className,
+  tone = "dark",
+  framed = true,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & { tone?: CardTone; framed?: boolean }) {
+  const panelClass = tone === "dark" ? "sixtep-panel" : "sixtep-panel-light";
+
+  if (!framed) {
+    return <div className={cn(panelClass, className)} {...props} />;
+  }
+
   return (
-    <div
-      className={cn(
-        "rounded-xl border border-border bg-surface p-5 shadow-card",
-        className,
-      )}
-      {...props}
-    />
+    <div className={cn("sixtep-dot-frame", className)}>
+      <div className={panelClass} {...props} />
+    </div>
   );
 }

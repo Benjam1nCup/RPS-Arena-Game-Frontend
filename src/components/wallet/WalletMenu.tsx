@@ -30,10 +30,10 @@ export function WalletMenu() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="rounded-lg border border-border bg-surface-secondary px-3 py-2 text-left transition hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+        className="sixtep-pill-btn sixtep-pill-secondary max-w-[220px] px-4 py-2 text-left text-xs sm:text-sm"
       >
         <BalanceDisplay compact />
-        <span className="mt-1 block font-mono text-xs text-text-muted">
+        <span className="mt-1 block font-mono text-[10px] opacity-70">
           {shortenAddress(wallet.address)}
         </span>
       </button>
@@ -42,7 +42,7 @@ export function WalletMenu() {
           <button
             type="button"
             onClick={() => void copy()}
-            className="font-mono text-lg text-text-primary hover:text-primary"
+            className="font-mono text-lg hover:underline"
           >
             {shortenAddress(wallet.address, 6)}
           </button>

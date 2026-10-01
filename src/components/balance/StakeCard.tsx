@@ -16,14 +16,14 @@ export function StakeCard({
       type="button"
       onClick={onSelect}
       className={cn(
-        "rounded-xl border px-4 py-4 text-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary",
+        "min-h-[72px] rounded-2xl border-2 border-black px-4 py-4 text-center transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-black",
         selected
-          ? "border-primary bg-primary/10 text-primary"
-          : "border-border bg-surface-secondary text-text-primary hover:border-primary/40",
+          ? "bg-black text-[#FFD445] shadow-[0_6px_0_rgba(0,0,0,0.15)]"
+          : "bg-white text-black hover:scale-[1.02]",
       )}
       aria-pressed={selected}
     >
-      <span className="block text-lg font-semibold">{formatRps(amount)} RPS</span>
+      <span className="block text-lg font-bold">{formatRps(amount)} RPS</span>
       {selected ? <span className="mt-1 block text-xs">✓</span> : null}
     </button>
   );

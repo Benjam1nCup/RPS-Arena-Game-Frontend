@@ -85,10 +85,10 @@ export function BuyRPSForm({
                 setCustom("");
                 setAmount(n);
               }}
-              className={`rounded-lg border px-3 py-3 text-sm font-semibold ${
+              className={`rounded-xl border-2 px-3 py-3 text-sm font-semibold ${
                 !custom && amount === n
-                  ? "border-primary bg-primary/10 text-primary"
-                  : "border-border bg-surface-secondary"
+                  ? "border-black bg-black text-[#FFD445]"
+                  : "border-black bg-white text-black"
               }`}
             >
               {formatRps(n)}
@@ -107,7 +107,7 @@ export function BuyRPSForm({
       />
 
       {quote ? (
-        <div className="space-y-3 rounded-lg border border-border bg-surface-secondary p-4 text-sm">
+        <div className="space-y-3 rounded-xl border-2 border-black bg-white p-4 text-sm">
           <div className="flex justify-between">
             <span className="text-text-muted">You pay</span>
             <span className="font-semibold">{formatEth(quote.totalEth)} ETH</span>

@@ -25,7 +25,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-4 sm:items-center"
+      className="sixtep-modal-overlay fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
       aria-label={title}
@@ -33,15 +33,13 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
     >
       <div
         className={cn(
-          "max-h-[90vh] w-full max-w-md overflow-y-auto rounded-xl border border-border bg-surface p-6 shadow-card animate-fade-in",
+          "sixtep-modal-panel max-h-[90vh] w-full max-w-md overflow-y-auto p-6 animate-fade-in",
           className,
         )}
         onClick={(e) => e.stopPropagation()}
       >
         {title ? (
-          <h2 className="mb-4 text-lg font-semibold tracking-wide text-text-primary">
-            {title}
-          </h2>
+          <h2 className="mb-4 font-display text-lg font-black uppercase tracking-wide">{title}</h2>
         ) : null}
         {children}
       </div>
