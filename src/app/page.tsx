@@ -1,6 +1,7 @@
+import { BrandAvatar } from "@/components/brand/BrandAvatar";
 import { Button } from "@/components/common/Button";
 import { Card } from "@/components/common/Card";
-import { MOVE_EMOJI, STAKE_PRESETS } from "@/lib/constants";
+import { STAKE_PRESETS } from "@/lib/constants";
 import { formatRps } from "@/lib/utils";
 import Link from "next/link";
 
@@ -62,25 +63,8 @@ export default function HomePage() {
             </p>
           ))}
 
-          <div className="sixtep-dot-frame mx-auto max-w-[320px]">
-            <div className="sixtep-device p-4">
-              <div className="rounded-3xl bg-[#FFD445] p-6 text-black">
-                <p className="font-display text-2xl font-black lowercase">rps arena</p>
-                <div className="mt-6 grid grid-cols-3 gap-2 text-3xl">
-                  {(["rock", "paper", "scissors"] as const).map((m) => (
-                    <div
-                      key={m}
-                      className="rounded-xl border-2 border-black bg-white py-4 font-bold"
-                    >
-                      {MOVE_EMOJI[m]}
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-6 text-xs uppercase tracking-widest opacity-70">
-                  Choose · Reveal · Win
-                </p>
-              </div>
-            </div>
+          <div className="sixtep-dot-frame mx-auto max-w-[340px] p-3">
+            <BrandAvatar size="hero" className="max-w-none border-4 shadow-[8px_8px_0_rgba(0,0,0,0.2)]" />
           </div>
         </div>
 

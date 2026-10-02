@@ -1,5 +1,7 @@
 export const APP_NAME = "RPS Arena";
 
+export const BRAND_AVATAR_SRC = "/brand/rps-arena-logo.jpg";
+
 export const STAKE_PRESETS = [10, 50, 100, 500] as const;
 
 export const PLATFORM_FEE_RATE = 0.05;

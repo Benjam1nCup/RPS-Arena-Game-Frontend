@@ -1,6 +1,8 @@
 "use client";
 
+import { BrandAvatar } from "@/components/brand/BrandAvatar";
 import { WalletMenu } from "@/components/wallet/WalletMenu";
+import { APP_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,8 +22,12 @@ export function SiteHeader() {
   return (
     <header className="sixtep-nav sticky top-0 z-40">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-        <Link href="/" className="font-display text-sm font-black uppercase tracking-[0.2em]">
-          rps arena
+        <Link href="/" className="flex items-center gap-3">
+          <BrandAvatar size="nav" />
+          <span className="sr-only">{APP_NAME}</span>
+          <span className="hidden font-display text-sm font-black uppercase tracking-[0.15em] sm:inline">
+            RPS Arena
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
